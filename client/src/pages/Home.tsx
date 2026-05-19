@@ -991,10 +991,43 @@ function ContactSection() {
   const { ref, isInView } = useScrollReveal();
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/trpc/contact.submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          json: {
+            name: form.name,
+            email: form.email,
+            phone: form.phone || undefined,
+            message: form.message,
+          },
+        }),
+      });
+
+      if (response.ok) {
+        setSent(true);
+        setForm({ name: "", email: "", phone: "", message: "" });
+        setTimeout(() => setSent(false), 5000);
+      } else {
+        setError("Chyba pri odoslaní správy. Skúste neskôr.");
+      }
+    } catch (err) {
+      setError("Chyba pri odoslaní správy. Skúste neskôr.");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -1113,12 +1146,19 @@ function ContactSection() {
                   />
                 </div>
 
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm">
+                    {error}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-[oklch(0.18_0.025_260)] text-white font-semibold py-4 rounded-xl hover:bg-[oklch(0.25_0.025_260)] transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2"
+                  disabled={loading}
+                  className="w-full bg-[oklch(0.18_0.025_260)] text-white font-semibold py-4 rounded-xl hover:bg-[oklch(0.25_0.025_260)] transition-all duration-200 active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Odoslať správu
-                  <ArrowRight className="w-4 h-4" />
+                  {loading ? "Odosielam..." : "Odoslať správu"}
+                  {!loading && <ArrowRight className="w-4 h-4" />}
                 </button>
 
                 <p className="text-xs text-center text-[oklch(0.6_0.015_260)]">

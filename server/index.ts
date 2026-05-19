@@ -2,6 +2,9 @@ import express from "express";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
+import { createExpressMiddleware } from "@trpc/server/adapters/express";
+import { appRouter } from "./routers";
+import type { TrpcContext } from "./_core/trpc";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,6 +12,28 @@ const __dirname = path.dirname(__filename);
 async function startServer() {
   const app = express();
   const server = createServer(app);
+
+  // Middleware
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
+
+  // tRPC middleware
+  app.use(
+    "/api/trpc",
+    createExpressMiddleware({
+      router: appRouter,
+      createContext: ({ req, res }): TrpcContext => ({
+        user: null, // In production, extract from session/JWT
+        req,
+        res,
+      }),
+    })
+  );
+
+  // Health check endpoint
+  app.get("/api/health", (_req, res) => {
+    res.json({ status: "ok" });
+  });
 
   // Serve static files from dist/public in production
   const staticPath =
