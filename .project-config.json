@@ -1,0 +1,35 @@
+{
+  "build_command": "pnpm run build",
+  "capabilities": [],
+  "dev_command": "pnpm run dev",
+  "env_vars": {},
+  "experiments": null,
+  "git_remote": {
+    "repo_url": "s3://vida-prod-gitrepo/webdev-git/310519663676428392/5XzpqQS2xwzAjG3CdKFB5z",
+    "access_key_id": "ASIAZV3A2ECZNEP6E3DP",
+    "secret_access_key": "y9hw3P2RZMAqgRTLrFkWlqYholVmZiudsosCLzCT",
+    "session_token": "IQoJb3JpZ2luX2VjEBIaCXVzLWVhc3QtMSJHMEUCIBldMqgMj/w8tq8pJY2cjIoMaIBYdtk9NZa4aJDlzEdEAiEAyyYoe3A7X9rxiSZ9TNYky+JQpwFG79+7iKeN8HgTw8Uq/wMI2v//////////ARAEGgw2NjUzODYwOTg4NjYiDG+U2ypIDCc2doMb2CrTA65y+9sf0t1sfOb+XetPhNu4KrspECk5P0u3avVepZoxgqg5QlbLUbgQPEFUP+OC4gsZxdjJ8mgB+oFrpZoeiQ7uBlA3YsgmPnsik3a3uGx01o2s/ZIfUCYON9AZJ9M5S9wfeLWGuAPNBJIyUlZbf097cRtz3n0Yqqi26DVi4IhHJOgwDnKkAr098L/lOP2y5hx5piOuZ2DndsD3vSYQC423XrtUzrWcuKOdkZjKWpBb7Gb1at9l9X9XfXo8sVagIwD1yhgQYfSBSWU0q3jpTgTU5fqIV6WXeu+VN3aG51AuhlIAIV647yA52Gq/OL6JMiwPbosSrhJFNyo8f/87itqhqFhFfLOjiPFli9PHUCrbnYlIR6VrlSzwZR9T4u6KP8m5/1aX7LaEK1K08Q2Ic89zQ9IqRkizbuXZudo9ohZf5KKElqHrbGPy0xznWj1iy6Kx846fkzsqOruP1TXPCIrB8dSdomRlyfqOBtBH4fqcva/rrtK/1lDVRLibqUTWN8W6vWlfKwSx37TmG+IsPmqUA+9EuYReNmjCmaAxW7g5p4oy3vSfivds2c9VAoMYZySbQBw4XIm2Py7Fre/M7sEn4azq5FzCmYM6wDnv+YkWefxQMPexstAGOp0BHaewCclts6cuGcFfPOfhtretfOJT3Y/HyFLVANsWkGwisukpKIuz9mAIAxKtyD1hiaUl3tz1RyaDBKV6lk0i8VE6SpcWjDZJE8iVnnbmqJh7h+zN2fKfe+QxXpzCR20DeZkVC4oCz5QoPV6SRIvBVoTWUQ2YxbUCjLct63jWoBTRSl2gwIMVQ6fVH0fuhCx1VhNxCl3hy7qJ4WoYyg==",
+    "expiration": "2026-05-20T05:08:07.000Z"
+  },
+  "name": "webstudio-sk",
+  "path": "/home/ubuntu/webstudio-sk",
+  "port": 3000,
+  "secrets": {
+    "BUILT_IN_FORGE_API_KEY": "9Yjtaf3keCUvKefrJTTdoD",
+    "BUILT_IN_FORGE_API_URL": "https://forge.manus.ai",
+    "JWT_SECRET": "TjdqVqBJ4jJZsB8TN3EAtc",
+    "OAUTH_SERVER_URL": "https://api.manus.im",
+    "OWNER_NAME": "simmi",
+    "OWNER_OPEN_ID": "B9fghBMRxqbgo8XoWzHPio",
+    "VITE_ANALYTICS_ENDPOINT": "https://manus-analytics.com",
+    "VITE_ANALYTICS_WEBSITE_ID": "bd38b543-bde9-45af-9171-8c6151c4cb95",
+    "VITE_APP_ID": "5XzpqQS2xwzAjG3CdKFB5z",
+    "VITE_APP_LOGO": "",
+    "VITE_APP_TITLE": "WebStudio - Profesionálne webstránky",
+    "VITE_FRONTEND_FORGE_API_KEY": "jCuyrnAf89XSX8YFYjHojG",
+    "VITE_FRONTEND_FORGE_API_URL": "https://forge.manus.ai",
+    "VITE_OAUTH_PORTAL_URL": "https://manus.im"
+  },
+  "template_id": "web-static",
+  "test_command": "pnpm test"
+}
